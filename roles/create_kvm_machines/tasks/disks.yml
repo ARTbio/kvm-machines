@@ -1,0 +1,6 @@
+- name: Create disk image folder {{ kvm_disk_image_folder }}
+  file: path="{{ kvm_disk_image_folder }}" state=directory
+
+- name: Create node disk images
+  include: create_disks.yml
+  with_dict: "{{ kvm_nodes }}"

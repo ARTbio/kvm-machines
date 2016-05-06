@@ -1,0 +1,10 @@
+kvm_node_mem_mib: 1250
+kvm_bridge_interface: virbr0
+kvm_disk_image_folder: /home/marius/kvm_images
+kvm_machine_config_folder: "{{ kvm_disk_image_folder }}"
+kvm_nodes: 
+  node1:
+    kvm_node_uuid: 0A8E9D7B-A80F-45B3-AEDB-1E4AA91C8ACB
+    kvm_mac_address: 52:54:00:2a:6b:05
+    kvm_disk_list:
+      - { img_file: root.img, disk_size: 5G, dev_name: hda }

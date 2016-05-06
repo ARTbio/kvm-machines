@@ -1,0 +1,3 @@
+- name: Create nodes
+  include: create_machines.yml
+  with_dict: "{{ kvm_nodes }}"

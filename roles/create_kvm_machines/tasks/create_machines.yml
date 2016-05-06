@@ -1,0 +1,9 @@
+- set_fact:
+    nodes: "{{item}}"
+
+- name: Create kvm machine xml directory
+  file: path="{{ kvm_machine_config_folder  }}/{{ nodes.key  }}" state=directory
+
+- name: Create virsh machine xml
+  template: src=machine.xml.j2 dest="{{ kvm_machine_config_folder  }}/{{ nodes.key  }}/{{ nodes.key  }}.xml"
+
