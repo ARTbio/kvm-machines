@@ -1,3 +1,4 @@
+- include: install_packages.yml
 - include: disks.yml
 - include: machines.yml
-
+  tags: start_stop

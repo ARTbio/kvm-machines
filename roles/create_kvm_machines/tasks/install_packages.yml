@@ -1,0 +1,6 @@
+- name: Install libvirt and kvm
+  apt: name={{ item }} install_recommends=no
+  with_items:
+    - qemu-kvm
+    - libvirt-bin
+    - python-libvirt

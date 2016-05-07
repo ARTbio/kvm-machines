@@ -1,3 +1,7 @@
-- name: Create nodes
-  include: create_machines.yml
+- name: Define nodes
+  include: define_machines.yml
+  with_dict: "{{ kvm_nodes }}"
+
+- name: Set nodes to {{ kvm_machine_state }} state
+  include: control_machines.yml
   with_dict: "{{ kvm_nodes }}"
