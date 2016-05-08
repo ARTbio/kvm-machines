@@ -2,3 +2,7 @@
 
 - name: start {{ nodes.key }}
   virt: name="{{ nodes.key }}" state="{{ kvm_machine_state }}"
+
+- name: destroy {{ nodes.key }}
+  virt: command=destroy name="{{ nodes.key }}"
+  when: kvm_machine_state==destroyed
