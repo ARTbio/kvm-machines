@@ -1,0 +1,11 @@
+type: physical
+maas_power_type: ether_wake
+nodes:
+    art-storage-5:
+      mac_address: 20:47:47:98:b4:12
+    art-storage-6:
+      mac_address: f8:db:88:ff:53:67
+    art-storage-7:
+      mac_address: 20:47:47:98:b8:1a
+    art-storage-8:
+      mac_address: 20:47:47:98:b8:2c
