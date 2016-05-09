@@ -3,4 +3,4 @@
 
 - name: Create node disk images
   include: create_disks.yml
-  with_dict: "{{ kvm_nodes }}"
+  with_dict: "{{ nodes }}"

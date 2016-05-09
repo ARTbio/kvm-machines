@@ -3,5 +3,5 @@
   become: True
 
 - name: Control hostname and power source in maas
-  manage_maas_nodes: name={{ item.key }} api_url={{ maas_api_url }} api_key={{ maas_api_key }} mac_address={{ item.value.kvm_mac_address }} power_type={{ maas_power_type }} power_address={{ virsh_power_address }}
-  with_dict: "{{ kvm_nodes }}"
+  manage_maas_nodes: name={{ item.key }} api_url={{ maas_api_url }} api_key={{ maas_api_key }} mac_address={{ item.value.mac_address }} power_type={{ maas_power_type }} power_address={{ virsh_power_address }}
+  with_dict: "{{ nodes }}"
