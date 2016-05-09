@@ -2,3 +2,4 @@
   roles:
     - role: create_kvm_machines
     - role: manage_maas_nodes
+      tags: maas

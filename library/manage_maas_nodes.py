@@ -31,7 +31,11 @@ def request_handling(func):
             response = r.text
             raise Exception("Request failed with Status Code %d, \n %s" % (r.status_code, response))
         else:
-            return json.loads(r.text)
+            r = json.loads(r.text)
+            if r:
+                return r
+            else:
+                return {}
 
     def inner(*args, **kwargs):
         return report_request_status(func(*args, **kwargs))
@@ -88,7 +92,7 @@ class MaasNodeOperation(MaasNodeConnection):
         self.api_path = "/nodes/" + self.system_id + "/"
         self.current_hostname = self.node["hostname"]
         self.current_power_parameters = self.get_power_parameters()
-        self.current_power_type =  self.node["power_type"]
+        self.current_power_type = self.node["power_type"]
         self.changed = False
         self.set_hostname()
         self.set_power_type()
@@ -119,7 +123,9 @@ class MaasNodeOperation(MaasNodeConnection):
         params = dict(power_type=self.power_type,
                       power_parameters_power_address=self.power_address,
                       power_parameters_power_id=self.name)
-        if self.current_power_parameters["power_address"] == self.power_address and self.current_power_parameters["power_address"] == self.power_address:
+        power_address = self.current_power_parameters.get("power_address", None)
+        power_id = self.current_power_parameters.get("power_id", None)
+        if power_address == self.power_address and power_id == self.name:
             return None
         self.changed = True
         if self.check_mode:
@@ -130,7 +136,8 @@ class MaasNodeOperation(MaasNodeConnection):
     def set_power_type_etherwake(self):
         params = dict(power_type=self.power_type,
                       power_parameters_mac_address=self.mac_address)
-        if self.current_power_parameters["mac_address"] == self.mac_address:
+        mac_address = self.current_power_parameters.get("mac_address", None)
+        if mac_address == self.mac_address:
             return None
         self.changed = True
         if self.check_mode:
@@ -167,18 +174,12 @@ def main():
     try:
         mm = MaasNodeOperation(module)
     except Exception as e:
-        module.fail_json(msg=e)
+        module.fail_json(msg=str(e))
 
     result = {}
     result['changed'] = mm.changed
     result["name"] = mm.name
     module.exit_json(**result)
-
-#if __name__ == "__main__":
-#    main()
-#    #args = get_args()
-#    #op = MaasNodeOperation(args)
-#    #print op.changed
 
 from ansible.module_utils.basic import *
 if __name__ == '__main__':
