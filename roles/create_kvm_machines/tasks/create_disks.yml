@@ -1,9 +1,9 @@
 - set_fact:
-    nodes: "{{item}}"
+    node: "{{item}}"
 
 - name: Create kvm image node directory
-  file: path="{{ kvm_disk_image_folder  }}/{{ nodes.key  }}" state=directory
+  file: path="{{ kvm_disk_image_folder  }}/{{ node.key  }}" state=directory
 
 - name: Create disk images
-  command: creates="{{ kvm_disk_image_folder  }}/{{ nodes.key  }}/{{ item.img_file  }}" qemu-img create -f raw "{{ kvm_disk_image_folder  }}/{{ nodes.key  }}/{{ item.img_file  }}" "{{ item.disk_size }}"
-  with_items: "{{ nodes.value.kvm_disk_list }}"
+  command: creates="{{ kvm_disk_image_folder  }}/{{ node.key  }}/{{ item.img_file  }}" qemu-img create -f raw "{{ kvm_disk_image_folder  }}/{{ node.key  }}/{{ item.img_file  }}" "{{ item.disk_size }}"
+  with_items: "{{ node.value.kvm_disk_list }}"

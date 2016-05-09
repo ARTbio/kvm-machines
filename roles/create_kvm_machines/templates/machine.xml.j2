@@ -1,6 +1,6 @@
 <domain type='kvm' id='1'>
-  <name>{{ nodes.key }}</name>
-  <uuid>{{ nodes.value.kvm_node_uuid  }}</uuid>
+  <name>{{ node.key }}</name>
+  <uuid>{{ node.value.kvm_node_uuid  }}</uuid>
   <memory unit='MiB'>{{ kvm_node_mem_mib  }}</memory>
   <currentMemory unit='MiB'>{{ kvm_node_mem_mib }}</currentMemory>
   <vcpu placement='static'>1</vcpu>
@@ -29,10 +29,10 @@
     <suspend-to-disk enabled='no'/>
   </pm>
   <devices>
-{% for disk in nodes.value.kvm_disk_list %}
+{% for disk in node.value.kvm_disk_list %}
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw'/>
-      <source file='{{ kvm_disk_image_folder  }}/{{ nodes.key  }}/{{ disk.img_file  }}'/>
+      <source file='{{ kvm_disk_image_folder  }}/{{ node.key  }}/{{ disk.img_file  }}'/>
       <target dev='{{ disk.dev_name }}'/>
     </disk>
 {% endfor %}
@@ -44,7 +44,7 @@
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
     </controller>
     <interface type='bridge'>
-      <mac address='{{ nodes.value.mac_address  }}'/>
+      <mac address='{{ node.value.mac_address  }}'/>
       <source bridge='{{ kvm_bridge_interface }}'/>
       <target dev='vnet0'/>
       <model type='rtl8139'/>

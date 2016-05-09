@@ -1,8 +1,8 @@
-- set_fact: nodes="{{ item }}"
+- set_fact: node="{{ item }}"
 
-- name: start {{ nodes.key }}
-  virt: name="{{ nodes.key }}" state="{{ kvm_machine_state }}"
+- name: start {{ node.key }}
+  virt: name="{{ node.key }}" state="{{ kvm_machine_state }}"
 
-- name: undefine {{ nodes.key }}
-  virt: command=undefine name="{{ nodes.key }}"
+- name: undefine {{ node.key }}
+  virt: command=undefine name="{{ node.key }}"
   when: kvm_machine_state=="destroyed"

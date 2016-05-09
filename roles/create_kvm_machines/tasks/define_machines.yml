@@ -1,6 +1,6 @@
-- set_fact: nodes="{{ item }}"
+- set_fact: node="{{ item }}"
 
-- name: define {{ nodes.key }}
-  virt: name="{{ nodes.key }}"
+- name: define {{ node.key }}
+  virt: name="{{ node.key }}"
         command="define"
         xml="{{ lookup('template', 'machine.xml.j2') }}"
