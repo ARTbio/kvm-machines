@@ -12,11 +12,11 @@
   with_dict: "{{ nodes }}"
   when: maas_power_type == "virsh"
 
-- name: Control hostname and power source in maas [ether_wake]
+- name: Control hostname and power source in maas [etherwake]
   manage_maas_nodes: name={{ item.key }}
                      api_url={{ maas_api_url }}
                      api_key={{ maas_api_key }}
                      mac_address={{ item.value.mac_address }}
                      power_type={{ maas_power_type }}
   with_dict: "{{ nodes }}"
-  when: maas_power_type == "ether_wake"
+  when: maas_power_type == "etherwake"

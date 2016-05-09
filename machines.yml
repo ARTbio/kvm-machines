@@ -1,5 +1,6 @@
 - hosts: all
   roles:
     - role: create_kvm_machines
+      when: type == "kvm"
     - role: manage_maas_nodes
       tags: maas

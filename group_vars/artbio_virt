@@ -1,4 +1,4 @@
-maas_api_url: https://lbcd41.snv.jussieu.fr/MAAS/api/1.0
+type: kvm
 kvm_node_mem_mib: 1250
 kvm_bridge_interface: br-094a5738492a
 kvm_disk_image_folder: /home/marius/kvm_images
@@ -35,43 +35,43 @@ mississippi_storage:
   - { img_file: storage9.img, disk_size: 40M, dev_name: vdj }
   - { img_file: storage10.img, disk_size: 40M, dev_name: vdk }
 nodes:
-  art-storage1:
+  art-storage1-virt:
     kvm_node_uuid: 0A8E9D7B-A80F-45B3-AEDB-1E4AA91C8ACB
     mac_address: DE:AD:BE:EF:8C:74
     kvm_disk_list: "{{ art_storage }}"
-  art-storage2:
+  art-storage2-virt:
     kvm_node_uuid: fde6366c-0217-46ad-95ca-5eaafb21085d
     mac_address: DE:AD:BE:EF:E6:87
     kvm_disk_list: "{{ art_storage }}"
-  art-storage3:
+  art-storage3-virt:
     kvm_node_uuid: 311713f4-619d-448c-856b-043a51e32cee
     mac_address: DE:AD:BE:EF:7B:E2
     kvm_disk_list: "{{ art_storage }}"
-  art-storage4:
+  art-storage4-virt:
     kvm_node_uuid: f5a8847d-3ecc-426e-aeac-c83afab8f504
     mac_address: DE:AD:BE:EF:47:87
     kvm_disk_list: "{{ art_storage }}"
-  umr-storage1:
+  umr-storage1-virt:
     kvm_node_uuid: 931c115c-381d-4265-acb3-0b00fe687293
     mac_address: DE:AD:BE:EF:21:CB
     kvm_disk_list: "{{ umr_storage }}"
-  umr-storage2:
+  umr-storage2-virt:
     kvm_node_uuid: fff3e592-0a41-420b-82a3-dcb8ce54503c
     mac_address: DE:AD:BE:EF:CB:F7
     kvm_disk_list: "{{ umr_storage }}"
-  umr-storage3:
+  umr-storage3-virt:
     kvm_node_uuid: ee450c9d-60dc-4bd4-9809-e5e31ebfeb4a
     mac_address: DE:AD:BE:EF:3F:C9
     kvm_disk_list: "{{ umr_storage }}"
-  umr-storage4:
+  umr-storage4-virt:
     kvm_node_uuid: 42740ada-8867-485f-bb45-71cede4c910f
     mac_address: DE:AD:BE:EF:AD:39
     kvm_disk_list: "{{ umr_storage }}"
-  plastisipi:
+  plastisipi-virt:
     kvm_node_uuid: a47bd4d7-1512-4fec-a737-b78968a073c7
     mac_address: DE:AD:BE:EF:CB:4D
     kvm_disk_list: "{{ plastisipi_storage }}"
-  mississippi:
+  mississippi-virt:
     kvm_node_uuid: d989ec7f-c54e-4baf-986c-5c81269fe993
     mac_address: DE:AD:BE:EF:39:7F
     kvm_disk_list: "{{ mississippi_storage }}"

@@ -4,3 +4,4 @@
   virt: name="{{ node.key }}"
         command="define"
         xml="{{ lookup('template', 'machine.xml.j2') }}"
+  when: kvm_machine_state != "destroyed"

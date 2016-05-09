@@ -49,7 +49,7 @@ def get_args():
     parser.add_argument("--api_url", action='store', required=True)
     parser.add_argument("--mac_address", action='store', type=str.lower, required=True)
     parser.add_argument("--name", action='store')
-    parser.add_argument("--power_type", action='store', choices = ["virsh", "etherwake"])
+    parser.add_argument("--power_type", action='store', choices = ["virsh", "ether_wake"])
     parser.add_argument("--power_address", action='store')
     return parser.parse_args()
 
@@ -113,8 +113,8 @@ class MaasNodeOperation(MaasNodeConnection):
             self.changed = True
         if self.power_type == "virsh":
             return self.set_power_type_virsh()
-        elif self.power_type == "etherwake":
-            return self.set_power_type_etherwake()
+        elif self.power_type == "ether_wake":
+            return self.set_power_type_ether_wake()
         else:
             raise Exception("Power type %s not implemented" % self.power_type)
 
@@ -133,7 +133,7 @@ class MaasNodeOperation(MaasNodeConnection):
         return self.put(params=params)
 
     @request_handling
-    def set_power_type_etherwake(self):
+    def set_power_type_ether_wake(self):
         params = dict(power_type=self.power_type,
                       power_parameters_mac_address=self.mac_address)
         mac_address = self.current_power_parameters.get("mac_address", None)
@@ -164,7 +164,7 @@ def main():
             api_url=dict(default=None, type='str', required=True),
             mac_address=dict(default=None, type='str', required=True),
             power_type=dict(default=None, type='str', required=True),
-            power_address=dict(default=None, type='str', required=True),
+            power_address=dict(default=None, type='str', required=False),
         ),
         supports_check_mode=True
     )
