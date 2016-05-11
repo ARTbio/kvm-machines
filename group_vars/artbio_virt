@@ -7,33 +7,33 @@ virsh_power_address: qemu+ssh://marius@192.168.1.1/system
 maas_power_type: virsh
 art_storage:
   - { img_file: root.img, disk_size: 5G, dev_name: vda }
-  - { img_file: storage1.img, disk_size: 80M, dev_name: vdb }
-  - { img_file: storage2.img, disk_size: 80M, dev_name: vdc }
+  - { img_file: storage1.img, disk_size: 800M, dev_name: vdb }
+  - { img_file: storage2.img, disk_size: 800M, dev_name: vdc }
 umr_storage:
   - { img_file: root.img, disk_size: 5G, dev_name: vda }
-  - { img_file: storage1.img, disk_size: 40M, dev_name: vdb }
-  - { img_file: storage2.img, disk_size: 40M, dev_name: vdc }
-  - { img_file: storage3.img, disk_size: 40M, dev_name: vdd }
+  - { img_file: storage1.img, disk_size: 400M, dev_name: vdb }
+  - { img_file: storage2.img, disk_size: 400M, dev_name: vdc }
+  - { img_file: storage3.img, disk_size: 400M, dev_name: vdd }
 plastisipi_storage:
   - { img_file: root.img, disk_size: 5G, dev_name: vda }
-  - { img_file: storage1.img, disk_size: 40M, dev_name: vdb }
-  - { img_file: storage2.img, disk_size: 40M, dev_name: vdc }
-  - { img_file: storage3.img, disk_size: 40M, dev_name: vdd }
-  - { img_file: storage4.img, disk_size: 40M, dev_name: vde }
-  - { img_file: storage5.img, disk_size: 40M, dev_name: vdf }
-  - { img_file: storage6.img, disk_size: 40M, dev_name: vdg }
+  - { img_file: storage1.img, disk_size: 400M, dev_name: vdb }
+  - { img_file: storage2.img, disk_size: 400M, dev_name: vdc }
+  - { img_file: storage3.img, disk_size: 400M, dev_name: vdd }
+  - { img_file: storage4.img, disk_size: 400M, dev_name: vde }
+  - { img_file: storage5.img, disk_size: 400M, dev_name: vdf }
+  - { img_file: storage6.img, disk_size: 400M, dev_name: vdg }
 mississippi_storage:
   - { img_file: root.img, disk_size: 5G, dev_name: vda }
-  - { img_file: storage1.img, disk_size: 40M, dev_name: vdb }
-  - { img_file: storage2.img, disk_size: 40M, dev_name: vdc }
-  - { img_file: storage3.img, disk_size: 40M, dev_name: vdd }
-  - { img_file: storage4.img, disk_size: 40M, dev_name: vde }
-  - { img_file: storage5.img, disk_size: 40M, dev_name: vdf }
-  - { img_file: storage6.img, disk_size: 40M, dev_name: vdg }
-  - { img_file: storage7.img, disk_size: 40M, dev_name: vdh }
-  - { img_file: storage8.img, disk_size: 40M, dev_name: vdi }
-  - { img_file: storage9.img, disk_size: 40M, dev_name: vdj }
-  - { img_file: storage10.img, disk_size: 40M, dev_name: vdk }
+  - { img_file: storage1.img, disk_size: 400M, dev_name: vdb }
+  - { img_file: storage2.img, disk_size: 400M, dev_name: vdc }
+  - { img_file: storage3.img, disk_size: 400M, dev_name: vdd }
+  - { img_file: storage4.img, disk_size: 400M, dev_name: vde }
+  - { img_file: storage5.img, disk_size: 400M, dev_name: vdf }
+  - { img_file: storage6.img, disk_size: 400M, dev_name: vdg }
+  - { img_file: storage7.img, disk_size: 400M, dev_name: vdh }
+  - { img_file: storage8.img, disk_size: 400M, dev_name: vdi }
+  - { img_file: storage9.img, disk_size: 400M, dev_name: vdj }
+  - { img_file: storage10.img, disk_size: 400M, dev_name: vdk }
 nodes:
   art-storage1-virt:
     kvm_node_uuid: 0A8E9D7B-A80F-45B3-AEDB-1E4AA91C8ACB

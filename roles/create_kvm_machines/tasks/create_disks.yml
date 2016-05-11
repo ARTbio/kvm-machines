@@ -1,6 +1,3 @@
-- set_fact:
-    node: "{{item}}"
-
 - name: Create kvm image node directory
   file: path="{{ kvm_disk_image_folder  }}/{{ node.key  }}" state=directory
 

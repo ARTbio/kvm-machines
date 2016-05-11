@@ -1,5 +1,5 @@
 type: physical
-maas_power_type: ether_wake
+maas_power_type: ipmi
 nodes:
     art-storage-5:
       mac_address: 20:47:47:98:b4:12

@@ -1,5 +1,3 @@
-- set_fact: node="{{ item }}"
-
 - name: start/stop {{ node.key }}
   virt: name="{{ node.key }}" state="{{ kvm_machine_state }}"
   ignore_errors: yes

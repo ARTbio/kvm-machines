@@ -19,4 +19,4 @@
                      mac_address={{ item.value.mac_address }}
                      power_type={{ maas_power_type }}
   with_dict: "{{ nodes }}"
-  when: maas_power_type == "ether_wake"
+  when: maas_power_type == "ether_wake" or maas_power_type == "ipmi"

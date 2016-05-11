@@ -1,5 +1,3 @@
-- set_fact: node="{{ item }}"
-
 - name: define {{ node.key }}
   virt: name="{{ node.key }}"
         command="define"

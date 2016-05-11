@@ -1,7 +1,11 @@
 - name: Define nodes
   include: define_machines.yml
+  loop_control:
+    loop_var: node
   with_dict: "{{ nodes }}"
 
 - name: Set nodes to {{ kvm_machine_state }} state
   include: control_machines.yml
+  loop_control:
+    loop_var: node
   with_dict: "{{ nodes }}"

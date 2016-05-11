@@ -49,7 +49,7 @@ def get_args():
     parser.add_argument("--api_url", action='store', required=True)
     parser.add_argument("--mac_address", action='store', type=str.lower, required=True)
     parser.add_argument("--name", action='store')
-    parser.add_argument("--power_type", action='store', choices = ["virsh", "ether_wake"])
+    parser.add_argument("--power_type", action='store', choices = ["virsh", "ether_wake", "ipmi"])
     parser.add_argument("--power_address", action='store')
     return parser.parse_args()
 
@@ -109,6 +109,8 @@ class MaasNodeOperation(MaasNodeConnection):
         return self.get(params=params)
 
     def set_power_type(self):
+        if self.power_type == "ipmi":
+            return None
         if self.power_type != self.current_power_type:
             self.changed = True
         if self.power_type == "virsh":

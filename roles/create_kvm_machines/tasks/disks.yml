@@ -3,4 +3,6 @@
 
 - name: Create node disk images
   include: create_disks.yml
+  loop_control:
+    loop_var: node
   with_dict: "{{ nodes }}"
