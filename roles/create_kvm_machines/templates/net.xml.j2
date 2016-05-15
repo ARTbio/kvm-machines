@@ -1,0 +1,6 @@
+<network>
+  <name>{{ kvm_network }}</name>
+  <forward mode="bridge">
+    <interface dev="{{ kvm_network_parent_device }}"/>
+  </forward>
+</network>

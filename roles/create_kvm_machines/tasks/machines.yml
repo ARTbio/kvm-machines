@@ -1,3 +1,6 @@
+- name: Define network
+  virt_net: command=define name="{{ kvm_network  }}" xml='{{ lookup("template", "net.xml.j2") }}'
+
 - name: Define nodes
   include: define_machines.yml
   loop_control:

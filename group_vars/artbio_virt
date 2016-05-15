@@ -3,7 +3,7 @@ kvm_node_mem_mib: 1250
 kvm_bridge_interface: br-094a5738492a
 kvm_disk_image_folder: /home/marius/kvm_images
 kvm_machine_config_folder: "{{ kvm_disk_image_folder }}"
-virsh_power_address: qemu+ssh://marius@192.168.1.1/system
+virsh_power_address: qemu+ssh://marius@192.168.1.250/system
 maas_power_type: virsh
 art_storage:
   - { img_file: root.img, disk_size: 5G, dev_name: vda }

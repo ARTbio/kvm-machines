@@ -4,3 +4,4 @@
     - qemu-kvm
     - libvirt-bin
     - python-libvirt
+    - python-lxml

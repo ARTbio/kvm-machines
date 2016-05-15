@@ -2,5 +2,6 @@
   roles:
     - role: create_kvm_machines
       when: type == "kvm"
+      become: true
     - role: manage_maas_nodes
       tags: maas
